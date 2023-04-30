@@ -26,8 +26,8 @@ publishing {
             name = "Packages"
             url = uri("https://maven.pkg.github.com/G0oft4rd/packages")
             credentials {
-                username = USERNAME
-                password = PASSWORD
+                username = findProperty("USERNAME") != null ? USERNAME : System.getenv("USERNAME")
+                password = findProperty("PASSWORD") != null ? PASSWORD : System.getenv("PASSWORD")
             }
         }
     }
