@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <AsyncLogger name="org.goof" level="debug" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </AsyncLogger>
+        <AsyncRoot level="FATAL">
+            <AppenderRef ref="LogToConsole"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

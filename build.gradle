@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'org.gooftard'
+version '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.apache.logging.log4j:log4j-api:2.11.2"
+    implementation "org.apache.logging.log4j:log4j-core:2.11.2"
+    implementation group: 'com.lmax', name: 'disruptor', version: '3.4.4'
+
+
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "Packages"
+            url = uri("https://maven.pkg.github.com/G0oft4rd/packages")
+            credentials {
+                username = USERNAME
+                password = PASSWORD
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            artifactId="logging_api"
+            from(components.java)
+        }
+    }
+}
