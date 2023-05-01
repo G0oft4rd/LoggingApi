@@ -33,7 +33,7 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
-            artifactId="logging_api"
+            artifactId="logging-api"
             from(components.java)
         }
     }
